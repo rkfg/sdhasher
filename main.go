@@ -127,7 +127,7 @@ func main() {
 				log.Printf("Error getting relative path: %s", err)
 				continue
 			}
-			log.Printf("%s | %x", e.path, e.SHA256)
+			log.Printf("Done: %s | %s", e.path, e.SHA256)
 			rel = "checkpoint/" + rel
 			result.Hashes[rel] = *e
 		}
