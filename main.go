@@ -134,6 +134,9 @@ func main() {
 	}()
 	knownFiles := map[string]struct{}{}
 	for p, e := range result.Hashes {
+		if !strings.HasPrefix(p, "checkpoint/") {
+			continue
+		}
 		modelPath := filepath.Join(params.Path, strings.TrimPrefix(p, "checkpoint/"))
 		fi, err := os.Stat(modelPath)
 		if err != nil {
